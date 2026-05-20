@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>I am Sorry Bazla ❤️</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root { --pink: #ff4d6d; --dark-red: #c9184a; --bg: #fff0f3; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--bg); color: #333; overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* --- Floating Hearts Background --- */
+        .heart-bg { position: fixed; color: var(--pink); font-size: 20px; animation: floatUp 4s linear infinite; z-index: -1; opacity: 0.5; }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
+        }
+
+        /* --- Main Sections --- */
+        section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 20px; text-align: center; }
+        
+        .box { 
+            background: white; 
+            padding: 40px 25px; 
+            border-radius: 30px; 
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.25); 
+            max-width: 550px; 
+            width: 100%;
+            border: 2px solid #ffccd5;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; color: var(--dark-red); font-size: 2.6rem; margin-top: 0; }
+        h2 { font-family: 'Great Vibes', cursive; color: var(--dark-red); font-size: 2.8rem; margin: 10px 0; }
+        p { line-height: 1.8; font-size: 1.1rem; color: #444; }
+
+        .next-btn { 
+            background: var(--dark-red); color: white; border: none; padding: 12px 35px; 
+            border-radius: 50px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            margin-top: 20px; text-decoration: none; display: inline-block;
+        }
+
+        /* --- Interactive Game Zone --- */
+        .interactive-zone { position: relative; height: 250px; width: 100%; margin-top: 30px; display: flex; align-items: center; justify-content: center; }
+        #yesBtn { background: #4caf50; color: white; border: none; padding: 15px 45px; border-radius: 50px; font-size: 22px; font-weight: bold; cursor: pointer; z-index: 10; box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); }
+        #noBtn { background: #757575; color: white; border: none; padding: 12px 30px; border-radius: 50px; font-size: 16px; position: absolute; transition: 0.1s ease; cursor: pointer; z-index: 5; }
+
+        .poetry-line { margin-bottom: 12px; font-size: 1.15rem; font-weight: 500; color: #444; line-height: 1.6; }
+        .heart-divider { color: var(--pink); font-size: 24px; margin: 15px 0; }
+
+        /* --- Final Screen --- */
+        #finalScreen { display: none; background: white; padding: 50px 25px; border-radius: 30px; border: 3px solid var(--pink); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+    </style>
+</head>
+<body>
+
+    <section id="box1">
+        <div class="box">
+            <h1>Bazla, I am So Sorry... 🥺</h1>
+            <p>
+                Main janta hoon ke main insecure ho gaya tha aur baar baar bacha ban ke bol raha tha ke kahin jana mat. 
+                Mera woh darr sirf isliye tha kyun ke main tumhein kabhi khona nahi chahta. Par meri fuzool baaton se tumhein dukh pohncha, jis par mujhe behad afsos hai.
+            </p>
+            <p style="font-style: italic; color: #666; font-size: 0.95rem;">Please mere dil ki baat aglay box mein dekho...</p>
+            <a href="#box2" class="btn next-btn">Open Next Box 👇</a>
+        </div>
+    </section>
+
+    <section id="box2">
+        <div class="box">
+            <h2>Tum Meri Kaynat Ho...</h2>
+            <div class="poetry-line">Tum meri kaynat ho, Bazla, tum hi meri har baat ho, Bazla</div>
+            <div class="poetry-line">Meri har dua ki tum hi shuruaat ho, Bazla</div>
+            <div class="heart-divider">❤️</div>
+            <div class="poetry-line">Main Arslan hoon, magar meri pehchan tum se hai</div>
+            <div class="poetry-line">Meri har muskurahat, meri jaan tum se hai</div>
+            <a href="#box3" class="btn next-btn">See The Big Question 👑</a>
+        </div>
+    </section>
+
+    <section id="box3">
+        <div class="box" id="questionBox">
+            <h1>Will you forgive me? 💍</h1>
+            <p>Faasle khatam karte hain bacha, tumhare bina mera koi nahi hai.</p>
+            
+            <div class="interactive-zone">
+                <button id="yesBtn">YES! ❤️</button>
+                <button id="noBtn">No 🥺</button>
+            </div>
+        </div>
+
+        <div class="box" id="finalScreen">
+            <h2>Thank You, Meri Jaan! 😭❤️</h2>
+            <p>
+                Main waada karta hoon ke ab dobara gusse mein kabhi aisi fuzool baat nahi hogi. 
+                Tumhare ghr ki pareshani mein tumhara sukoon banoonga, tumpe cheekhunga nahi.
+            </p>
+            <div class="heart-divider">💖✨💍</div>
+            <p style="font-family: 'Great Vibes'; font-size: 2.2rem; color: var(--dark-red); margin-bottom: 0;">
+                Lots of Love, Arslan to Bazla
+            </p>
+        </div>
+    </section>
+
+    <script>
+        // Floating Hearts Maker
+        function makeHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+        setInterval(makeHeart, 400);
+
+        // "No" Button Tap Avoid Logic
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const questionBox = document.getElementById('questionBox');
+        const finalScreen = document.getElementById('finalScreen');
+        let scaleSize = 1;
+
+        function teleportNo() {
+            // Screen dimensions ke mutabiq random position
+            const x = Math.random() * (window.innerWidth - 120);
+            const y = Math.random() * 180; // Keeping it within safe box area
+            
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+
+            // Make YES button grow bigger so it's easier to click
+            scaleSize += 0.25;
+            yesBtn.style.transform = `scale(${scaleSize})`;
+            
+            if(scaleSize > 6) {
+                noBtn.style.display = 'none'; // Completely vanish if they try too much
+            }
+        }
+
+        // Avoid both Touch (Mobile) and Mouse Hover (Desktop)
+        noBtn.addEventListener('mouseover', teleportNo);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevents iPhone zooming/clicking
+            teleportNo();
+        });
+
+        // YES Button Click
+        yesBtn.addEventListener('click', () => {
+            // Hide the question box elements
+            document.getElementById('questionBox').style.display = 'none';
+            // Show final gorgeous apology screen
+            finalScreen.style.display = 'block';
+            
+            // Celebration Confetti
+            var duration = 4 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ff4d6d', '#c9184a'] });
+                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ff4d6d', '#c9184a'] });
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        });
+    </script>
+</body>
+</html>
